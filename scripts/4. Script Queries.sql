@@ -1,4 +1,4 @@
-#Scrcip de consultas
+#Script de consultas
 
 USE EGRESADOS;
 
@@ -19,7 +19,8 @@ SELECT ACT.ACT_NOMBRE AS Nombre_Actividad, COUNT(APL.APL_IDENTIFICACION) AS Nume
 	FROM Actividad ACT JOIN  Convocatoria CONV ON ACT.ACT_CODIGO = CONV.CON_ACTIVIDAD
 		JOIN  Aplicacion APL ON CONV.CON_CODIGO = APL.APL_CODIGO 
 			JOIN Persona PER ON APL.APL_IDENTIFICACION = PER.PER_NUM_DOCUMENTO
-				GROUP BY  ACT.ACT_NOMBRE;
+				GROUP BY  ACT.ACT_NOMBRE
+					HAVING Numero_aplicantes=4;
 
 
 -- ---------------------- Tercera consulta
